@@ -29,7 +29,7 @@ class _RelaxState extends State<Relax> {
           body: Container(
               decoration: BoxDecoration(
                   gradient: LinearGradient(
-                      colors: [Color(0xff1542bf), Color(0xff51a8ff)],
+                      colors: [Color(0xff1d3461), Color(0xff376996)],
                       begin: FractionalOffset(0.5, 1))),
               width: double.infinity,
               child: Column(
@@ -38,7 +38,7 @@ class _RelaxState extends State<Relax> {
                   children: <Widget>[
                     Padding(
                         padding: EdgeInsets.only(top: 25.0),
-                        child: Text("Pahuway",
+                        child: Text("Hello World",
                             style: TextStyle(
                                 color: Colors.white, fontSize: 40.0))),
                     Expanded(
