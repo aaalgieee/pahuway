@@ -51,9 +51,16 @@ class _RelaxState extends State<Relax> {
                           progressColor: Colors.white,
                           center: Text("$TimeInMinut",
                               style: TextStyle(
-                                  color: Colors.white, fontSize: 80.0))),
+                                  color: Colors.white,
+                                  fontSize: 80.0
+                              )
+                          )
+                      ),
                     )
-                  ]))),
+                  ]
+              )
+          )
+      ),
     );
   }
 }
