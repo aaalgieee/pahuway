@@ -4,6 +4,7 @@ Date: 09-Sept-2021
 AppName: Pahuway
 */
 
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'dart:ui';
@@ -22,6 +23,35 @@ class _RelaxState extends State<Relax> {
   double percent = 0;
   static int TimeInMinut = 25;
   int TimeInSec = TimeInMinut * 60;
+
+  late Timer timer;
+
+  _StartTimer(){
+    TimeInMinut = 25;
+    int Time = TimeInMinut * 60;
+    double SecPercent = (Time/100);
+    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        if(Time > 0){
+          Time--;
+          if(Time % 60 == 0){ // a minute has passed already
+            TimeInMinut--;
+          } if(Time % SecPercent == 0){  // 1% = to progress bar
+            if(percent < 1){
+              percent += 0.01;
+            }else{
+              percent = 1;
+            }
+          }
+        }else{
+          percent= 0;
+          TimeInMinut = 25;
+          timer.cancel();
+        }
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -38,11 +68,12 @@ class _RelaxState extends State<Relax> {
                   children: <Widget>[
                     Padding(
                         padding: EdgeInsets.only(top: 25.0),
-                        child: Text("Hello World",
+                        child: Text("Pahuway",
                             style: TextStyle(
                                 color: Colors.white, fontSize: 40.0))),
                     Expanded(
                       child: CircularPercentIndicator(
+                        circularStrokeCap: CircularStrokeCap.round,
                           percent: percent,
                           animation: true,
                           animateFromLastPercent: true,
@@ -76,14 +107,14 @@ class _RelaxState extends State<Relax> {
                                   child: Column(
                                     children: <Widget>[
                                       Text(
-                                        "Relax Timer",
+                                        "Study Timer",
                                         style: TextStyle(
                                             fontSize: 30.0
                                         ),
                                       ),
                                       SizedBox(height:10.0,),
                                       Text(
-                                          "5",
+                                          "25",
                                           style: TextStyle(
                                               fontSize: 80.0
                                           )
@@ -95,7 +126,7 @@ class _RelaxState extends State<Relax> {
                                     child: Column(
                                         children: <Widget>[
                                           Text(
-                                            "Relax Timer",
+                                            "Pause Timer",
                                             style: TextStyle(
                                                 fontSize: 30.0
                                             ),
@@ -116,12 +147,19 @@ class _RelaxState extends State<Relax> {
                           Padding(
                             padding: EdgeInsets.symmetric(vertical: 28.0),
                             child: RaisedButton(
+                              onPressed: _StartTimer,
                               color: Colors.blue,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(100.0)
-                              ), onPressed: () {  },
+                              ),
                               child: Padding(
-                                padding:
+                                padding: EdgeInsets.all(20.0),
+                                child: Text("Start to Study",
+                                style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 22.0
+                                )
+                                )
                               )
                             )
                           )
