@@ -3,6 +3,13 @@
 A new Flutter project that enables the user to create a timer to relax.
 PAHUWAY is a Cebuano Dialect that mean "Pahinga" in Tagalog or "rest" in english
 
+### Depencies Used
+- percent_indicator on pub.dev
+
+
+
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
