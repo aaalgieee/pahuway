@@ -56,7 +56,80 @@ class _RelaxState extends State<Relax> {
                               )
                           )
                       ),
+                    ),
+                    SizedBox(height: 30.0,),
+                    Expanded(
+                    child: Container(
+                    width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(topRight: Radius.circular(30.0),topLeft: Radius.circular(30.0))
+                      ),
+                      child: Padding(
+                      padding: EdgeInsets.only(top: 30.0, left: 20.0, right: 20.0),
+                        child: Column(
+                        children: <Widget>[
+                          Expanded(
+                            child: Row(
+                              children:<Widget>[
+                                Expanded(
+                                  child: Column(
+                                    children: <Widget>[
+                                      Text(
+                                        "Relax Timer",
+                                        style: TextStyle(
+                                            fontSize: 30.0
+                                        ),
+                                      ),
+                                      SizedBox(height:10.0,),
+                                      Text(
+                                          "5",
+                                          style: TextStyle(
+                                              fontSize: 80.0
+                                          )
+                                      )
+                                    ]
+                                  )
+                                ),
+                                Expanded(
+                                    child: Column(
+                                        children: <Widget>[
+                                          Text(
+                                            "Relax Timer",
+                                            style: TextStyle(
+                                                fontSize: 30.0
+                                            ),
+                                          ),
+                                          SizedBox(height:10.0,),
+                                          Text(
+                                              "5",
+                                              style: TextStyle(
+                                                  fontSize: 80.0
+                                              )
+                                          )
+                                        ]
+                                    )
+                                ),
+                              ]
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(vertical: 28.0),
+                            child: RaisedButton(
+                              color: Colors.blue,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100.0)
+                              ), onPressed: () {  },
+                              child: Padding(
+                                padding:
+                              )
+                            )
+                          )
+                        ]
+                        ),
+                      )
                     )
+                    ),
                   ]
               )
           )
